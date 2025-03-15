@@ -19,7 +19,7 @@ Reservation *createNode(int roomNumber, char *guestName) {
 
     newNode->roomNumber = roomNumber;
     strncpy(newNode->guestName, guestName, sizeof(newNode->guestName) - 1);
-    newNode->guestName[sizeof(newNode->guestName) - 1] = '\0'; // Asigură terminarea corectă a string-ului
+    newNode->guestName[sizeof(newNode->guestName) - 1] = '\0';
     newNode->next = NULL;
     return newNode;
 }
@@ -134,16 +134,16 @@ int main() {
         printf("5. Save and exit\n");
         printf("Choose an option: ");
         scanf("%d", &option);
-        getchar(); // Consumă newline-ul lăsat de scanf
+        getchar(); 
 
         switch (option) {
             case 1:
                 printf("Room number: ");
                 scanf("%d", &roomNumber);
-                getchar(); // Consumă newline-ul lăsat de scanf
+                getchar(); 
                 printf("Guest name: ");
                 fgets(guestName, sizeof(guestName), stdin);
-                guestName[strcspn(guestName, "\n")] = '\0'; // Elimină newline-ul de la final
+                guestName[strcspn(guestName, "\n")] = '\0'; 
                 addReservation(roomNumber, guestName);
                 break;
             case 2:
